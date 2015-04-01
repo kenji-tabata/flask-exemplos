@@ -44,19 +44,19 @@ O valor de `SQLALCHEMY_DATABASE_URI` irá depender de seu banco de dados.
 
 1. sqlite: 
 
-    "sqlite:////tmp/test.db"
+    `"sqlite:////tmp/test.db"`
 
 2. MySQL com dirver MySQLdb:
 
-    "mysql://user:password@localhost/name-database"
+    `"mysql://user:password@localhost/name-database"`
 
 3. MySQL com dirver pymysql:
 
-    "mysql+pymysql://user:password@localhost/name-database"
+    `"mysql+pymysql://user:password@localhost/name-database"`
 
 4. PostgreSQL:
 
-    "postgresql://user:password@localhost/name-database"
+    `"postgresql://user:password@localhost/name-database"`
 
 
 Definido o banco de dados, acione o Python pelo terminal.
