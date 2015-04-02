@@ -7,24 +7,24 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     import pymysql
-    conn = pymysql.connect(host='localhost', port=3306, user='', passwd='', db='mysql')
+    connection = pymysql.connect(host='localhost', port=3306, user='', passwd='', db='mysql')
 
-    cur = conn.cursor()
+    cursor = connection.cursor()
 
-    users_total = cur.execute('SELECT Host, User FROM user')
+    users_total = cursor.execute('SELECT Host, User FROM user')
 
     class User():
         pass
 
     users = []
-    for row in cur:
+    for row in cursor:
         user = User()
         user.host  = row[0]
         user.login = row[1]
         users.append(user)
 
-    cur.close()
-    conn.close()
+    cursor.close()
+    connection.close()
 
     return render_template('index.html', users=users)
 

@@ -34,14 +34,14 @@ def teardown_request(exception):
 
 @app.route('/')
 def home():
-    cur = g.db.cursor()
+    cursor = g.db.cursor()
 
-    cur.execute('SELECT Host, User FROM user')
+    cursor.execute('SELECT Host, User FROM user')
 
     #
     # List Comprehensions
     #
-    users = [dict(host=row[0], login=row[1]) for row in cur.fetchall()]
+    users = [dict(host=row[0], login=row[1]) for row in cursor.fetchall()]
 
     return render_template('index.html', users=users)
 

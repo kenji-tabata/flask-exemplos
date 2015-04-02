@@ -12,19 +12,19 @@ Iniciamos o Python e importamos a biblioteca.
 
 Conectamos com o banco de dados através da função `connect()`.
 
-    >>> conn = pymysql.connect(host='localhost', port=3306, user='', passwd='', db='mysql')
-    >>> type(conn)
+    >>> connection = pymysql.connect(host='localhost', port=3306, user='', passwd='', db='mysql')
+    >>> type(connection)
     <class 'pymysql.connections.Connection'>
 
 Obtemos o cursor.
 
-    >>> cur = conn.cursor()
-    >>> type(cur)
+    >>> cursor = connection.cursor()
+    >>> type(cursor)
     <class 'pymysql.cursors.Cursor'>
 
 Executamos um SQL.
 
-    >>> users_total = cur.execute('SELECT Host, User FROM user')
+    >>> users_total = cursor.execute('SELECT Host, User FROM user')
 
 A função `execute()` retorna um inteiro com o total de registros encontrados.
 
@@ -35,12 +35,12 @@ A função `execute()` retorna um inteiro com o total de registros encontrados.
 
 Também temos a propriedade `rowcount` com o mesmo valor.
 
-    >>> cur.rowcount == users_total
+    >>> cursor.rowcount == users_total
     True
 
 Avançando com o cursor, podemos ver o resultado
 
-    >>> for row in cur:
+    >>> for row in cursor:
     ...   row
     ... 
     """ mostra os resultados """
@@ -48,8 +48,8 @@ Avançando com o cursor, podemos ver o resultado
 Detalhe: Se quisermos percorrer novamente a consulta devemos executá-la, faz
 sentido pois havíamos avançado com o curso e agora ele está no fim do arquivo.
 
-    >>> users_total = cur.execute('SELECT Host, User FROM user')
-    >>> for row in cur:
+    >>> users_total = cursor.execute('SELECT Host, User FROM user')
+    >>> for row in cursor:
     ...   type(row)
     ... 
     <class 'tuple'>
