@@ -49,6 +49,8 @@ alguns usuários.
 
 ### Read
 
+Recuperando todos os registros...
+
     >>> users = User.query.all()
     >>> for user in users:
     ...  user.login
@@ -57,6 +59,7 @@ alguns usuários.
     'alexandre'
     'micheletti'
 
+Recuperando um registro individualmente...
 
     >>> user = User.query.get(1)
     >>> user.login
