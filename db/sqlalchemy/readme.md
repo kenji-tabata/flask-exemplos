@@ -1,10 +1,19 @@
 SQLAlchemy
 ===
 
-Para utilizar o [SQLAlchemy](https://pythonhosted.org/Flask-SQLAlchemy/)
-você precisa tê-lo instalado em seu projeto.
+Para utilizar o [SQLAlchemy](http://www.sqlalchemy.org/) em seu projeto Flask 
+você terá que optar entre a instalação pura (plan) e utilização do SQLAlchemy 
+como extension (plugin).
+
+Instalação pura...
 
     pip install slqalchemy
+
+Instalação como extensão...
+
+    pip install Flask-SQLAlchemy
+
+Os exemplos deste repositório se limita a segunda opção (instalação como extensão).
 
 Além disso, dependendo de sua escolha como bando de dados, você também deve ter 
 o driver de seu banco devidamente instalado.
