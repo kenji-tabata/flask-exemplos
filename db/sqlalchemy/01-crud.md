@@ -27,7 +27,7 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.login
-
+```
 
 Para iniciar, acessamos o terminal, importamos sua aplicação e instanciamos 
 alguns usuários.
