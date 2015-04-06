@@ -13,7 +13,7 @@ from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "veja opções adiante"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://user:password@localhost/name-database"
 db = SQLAlchemy(app)
 
 class User(db.Model):
