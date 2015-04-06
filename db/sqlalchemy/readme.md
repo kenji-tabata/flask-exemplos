@@ -6,8 +6,8 @@ você precisa tê-lo instalado em seu projeto.
 
     pip install slqalchemy
 
-Além disso, dependendo de sua escolha como bando de dados, você deve ter o driver
-de seu banco tamém devidamente instalado.
+Além disso, dependendo de sua escolha como bando de dados, você também deve ter 
+o driver de seu banco devidamente instalado.
 
 Para usuários do MySQL você terá duas opções de divers: MySQLdb e pymysql.
 
@@ -85,7 +85,7 @@ Vamos salvá-los.
     >>> db.session.add(guest)
     >>> db.session.commit()
 
-Recupre as informaçẽos do banco.
+Recupere as informações do banco.
 
     >>> users = User.query.all()
     >>> for user in users:
