@@ -27,16 +27,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "veja opções adiante"
 db = SQLAlchemy(app)
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True)
+    id    = db.Column(db.Integer, primary_key=True)
+    login = db.Column(db.String(80), unique=True)
     email = db.Column(db.String(120), unique=True)
 
-    def __init__(self, username, email):
-        self.username = username
+    def __init__(self, login, email):
+        self.login = login
         self.email = email
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return '<User %r>' % self.login
 ```
 
 
@@ -73,24 +73,23 @@ Crie a base de dados e gere o "schema" executando `create_all()`.
     >>> from yourapplication import db
     >>> db.create_all()
 
-Vamos instanciar alguns usuários.
 
-    >>> from yourapplication import User
-    >>> admin = User('admin', 'admin@example.com')
-    >>> guest = User('guest', 'guest@example.com')
+No MySQL foi criado a seguinte tabela...
 
-Vamos salvá-los.
+    CREATE TABLE IF NOT EXISTS `user` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `login` varchar(80) DEFAULT NULL,
+      `email` varchar(120) DEFAULT NULL,
+      PRIMARY KEY (`id`),
+      UNIQUE KEY `email` (`email`),
+      UNIQUE KEY `login` (`login`)
+    ) ENGINE=InnoDB DEFAULT;
 
-    >>> db.session.add(admin)
-    >>> db.session.add(guest)
-    >>> db.session.commit()
 
-Recupere as informações do banco.
 
-    >>> users = User.query.all()
-    >>> for user in users:
-    >>>   user.username
-    ...
-    admin
-    guest
+Documentação
+---
 
+- [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.0/)
+- [SQLAlchemy in Flask](http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/)
+- [SQLAlchemy 0.9 Documentation](http://docs.sqlalchemy.org/en/rel_0_9/)
