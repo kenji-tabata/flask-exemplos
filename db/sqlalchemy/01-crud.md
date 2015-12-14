@@ -1,7 +1,7 @@
 CRUD com SQLAlchemy
 ===
 
-Considereo arquivo abaixo como sendo sua aplicação.
+Considere o arquivo abaixo como sendo sua aplicação.
 
 ```python
 #
