@@ -243,6 +243,8 @@ Recuperando as tags de cada posts
 <Page 'Tutorial Flask'>
 >>> a.tags
 [<Tag 'Flask'>]
-
-
 ```
+
+[Documentação](http://flask-sqlalchemy.pocoo.org/1.0/models/)
+[Exemplo completo do One-to-One](http://stackoverflow.com/a/24934509)
+[Exemplo completo do Many-to-Many](http://librelist.com/browser/flask/2011/11/12/sqlalchemy-add-method-for-many-to-many-relationship/#068423c8092c2154ccfe08268711ec03)
