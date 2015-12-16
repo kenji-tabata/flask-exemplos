@@ -36,6 +36,7 @@ class Post(db.Model):
         return '<Post %r>' % self.title
 
 class Category(db.Model):
+    __tablename__ = 'category_posts'
     id   = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
 
@@ -46,6 +47,8 @@ class Category(db.Model):
         return '<Category %r>' % self.name
 
 ```
+
+O atributo `__tablename__` é utilizado quando o nome da tabela da base de dados é diferente do nome do `model`.
 
 Agora no terminal importamos as aplicações e instanciamos uma Category e 
 alguns Posts. 
@@ -82,7 +85,7 @@ $ python
 ```
 
 
-One-to_many
+One-to-Many
 ---
 
 Outra forma para adicionarmos um relacionamento de um para muitos é atribuindo o campo com `db.relationship` 
