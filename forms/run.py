@@ -35,6 +35,17 @@ class MyForm(Form):
     username = StringField('username', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired()])
 
+    # Validação personalizada
+    def validate(self):
+        # Primeiro verifica se todos os campos estão preenchidos
+        initial_validation = super(MyForm, self).validate()
+        if not initial_validation:
+            return False
+        # Para depois verificar as validações personalizadas
+        if len(self.username.data) < 4:
+            self.username.errors.append('Username tem que ser maior que 4 caracteres')
+            return False
+        return True
 
 #
 # Views
