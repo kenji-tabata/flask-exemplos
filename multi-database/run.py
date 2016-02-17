@@ -11,6 +11,8 @@ app.config['DATABASES'] = {
 # Configuração da conexão padrão
 app.config['SQLALCHEMY_DATABASE_URI'] = app.config['DATABASES']['testes']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Visualizar no terminal as execuções das querys
 app.config['SQLALCHEMY_ECHO'] = True
 
 db = SQLAlchemy(app)
